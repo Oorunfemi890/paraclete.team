@@ -3,38 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paraclete Team</title>
+    <title>Paraclete Out Sourcing</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="logo">Paraclete.Team</div>
-        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+
+    <div class="sidebar">
+        <h2>Paraclete Out Sourcing</h2>
+        <input type="text" placeholder="Search...">
+        <a href="#home">Home Page</a>
+        <a href="#offers">Offers</a>
+        <a href="#goals">Goals</a>
+        <a href="#about">About Us</a>
+        <a href="#fields">Fields & Stacks</a>
+        <a href="#team">Team Profiles</a>
+    </div>
+
+    <div class="sidebar-toggle" onclick="toggleSidebar()">&#9776; More</div>
+
+    <nav>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#offers">Offers</a></li>
-            <li><a href="#signin">Sign In</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Main Section -->
-    <section id="home" class="content">
-        <h1>Welcome to Paraclete Team</h1>
-        
-        <!-- Image Carousel -->
-        <div class="carousel">
-            <div class="carousel-container">
-                <img src="https://www.opencodez.com/wp-content/uploads/2020/05/Full-Stack-QA-1024x593.png" class="carousel-image" alt="Image 1">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtmRJIa9qtLxpfyGYUQk4fP38lBeRcaENnBFxbNPxRsqoUDlP_I0Y2HCQ&s" class="carousel-image" alt="Image 2">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmCJswOgCwNyhavFbT8Y7U6nUYHJtQDUSyIwrmJ62M1WLREXZuY2ldWxU&s" class="carousel-image" alt="Image 3">
-                <img src="https://t4.ftcdn.net/jpg/05/46/10/15/360_F_546101577_7eZax3OCPZ1x8aST0oVsnDfX2OzjBsGr.jpg" class="carousel-image" alt="Image 4">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqDBRonkGK-BPeDD73L58E_5RA4JbcsSD1Ow&s" class="carousel-image" alt="Image 5">
-                <img src="https://media.istockphoto.com/id/1303169188/photo/devops-concept.jpg?s=612x612&w=0&k=20&c=RzgMNp4TqIzpjZddZ4Lqyun9uXg5P1uF586BBIy1Fu8=" class="carousel-image" alt="Image 6">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEOvvakjQmMi1B5IwDhHLgPRIDw2CnzcmuwQ&s" class="carousel-image" alt="Image 7">
-            </div>
+    <div class="carousel-wrapper">
+        <div class="carousel-container">
+            <img src="https://www.opencodez.com/wp-content/uploads/2020/05/Full-Stack-QA-1024x593.png" class="carousel-image" alt="Image 1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtmRJIa9qtLxpfyGYUQk4fP38lBeRcaENnBFxbNPxRsqoUDlP_I0Y2HCQ&s" class="carousel-image" alt="Image 2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmCJswOgCwNyhavFbT8Y7U6nUYHJtQDUSyIwrmJ62M1WLREXZuY2ldWxU&s" class="carousel-image" alt="Image 3">
+            <img src="https://t4.ftcdn.net/jpg/05/46/10/15/360_F_546101577_7eZax3OCPZ1x8aST0oVsnDfX2OzjBsGr.jpg" class="carousel-image" alt="Image 4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqDBRonkGK-BPeDD73L58E_5RA4JbcsSD1Ow&s" class="carousel-image" alt="Image 5">
+            <img src="https://media.istockphoto.com/id/1303169188/photo/devops-concept.jpg?s=612x612&w=0&k=20&c=RzgMNp4TqIzpjZddZ4Lqyun9uXg5P1uF586BBIy1Fu8=" class="carousel-image" alt="Image 6">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEOvvakjQmMi1B5IwDhHLgPRIDw2CnzcmuwQ&s" class="carousel-image" alt="Image 7">
         </div>
-    </section>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

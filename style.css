@@ -63,6 +63,84 @@ body {
     cursor: pointer;
 }
 
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 50px;
+    width: 250px;
+    height: calc(100% - 50px); /* Adjust height to fit below the navbar */
+    background: #333;
+    color: white;
+    padding: 20px;
+    display: block;
+    border-radius: 20px;
+    transition: transform 0.4s ease-in-out;
+    transform: translateX(-100%); /* Initially hidden */
+    z-index: 999; /* Ensure it is above other content */
+}
+
+.sidebar.show-sidebar {
+    transform: translateX(0); /* Show sidebar */
+}
+
+.sidebar h2 {
+    text-align: center;
+    opacity: 1;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 8px;
+    background: white;
+    border-radius: 5px;
+    position: relative;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 8px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}
+
+.sidebar ul {
+    margin-top: 20px;
+    opacity: 1;
+}
+
+.sidebar ul li {
+    list-style: none;
+    padding: 12px;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: all 0.3s;
+}
+
+.sidebar ul li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.close-btn,
+.sidebar-toggle {
+    display: none;
+}
+
 /* Carousel Section */
 .carousel {
     width: 80%;
@@ -72,6 +150,7 @@ body {
     position: relative;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Ensure carousel is below sidebar */
 }
 
 .carousel-container {
@@ -116,5 +195,40 @@ body {
     .carousel {
         width: 90%;
         height: 180px;
+        margin-top: 20px; /* Add margin for spacing */
+    }
+
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show-sidebar {
+        transform: translateX(0);
+    }
+
+    .sidebar-toggle {
+        display: block;
+        position: fixed;
+        top: 60px;
+        left: 10px;
+        background: #222;
+        color: white;
+        padding: 8px;
+        border: none;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+
+    .close-btn {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background: red;
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 50%;
     }
 }

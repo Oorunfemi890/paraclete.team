@@ -1,6 +1,12 @@
+<script>
 function toggleMenu() {
     const navLinks = document.querySelector(".nav-links");
     navLinks.classList.toggle("active");
+}
+
+function toggleSidebar() {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("show-sidebar");
 }
 
 let index = 0;

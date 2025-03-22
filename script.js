@@ -1,12 +1,11 @@
 function toggleMenu() {
     const navLinks = document.querySelector(".nav-links");
-    navLinks.classList.toggle("active");
+    navLinks.classList.toggle("show");
+
+    const menuIcon = document.querySelector(".menu-icon");
+    menuIcon.innerHTML = navLinks.classList.contains("show") ? "&#10005;" : "&#9776;";
 }
 
-function toggleSidebar() {
-    const sidebar = document.querySelector(".sidebar");
-    sidebar.classList.toggle("show-sidebar");
-}
 
 let index = 0;
 
@@ -19,8 +18,8 @@ function moveCarousel() {
         index = 0;
     }
 
-    const offset = -index * 100;
+    const offset = -index * 100 / 3; // Adjust for 3 images at a time
     carouselContainer.style.transform = `translateX(${offset}%)`;
 }
 
-setInterval(moveCarousel, 3000); 
+setInterval(moveCarousel, 3000);

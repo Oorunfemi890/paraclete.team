@@ -1,4 +1,4 @@
-* {
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -36,18 +36,20 @@ body {
 .nav-links {
     list-style: none;
     display: flex;
+    flex-direction: row;
+    margin-left: 20px;
 }
 
 .nav-links li {
-    margin: 0 15px;
+    margin: 0 10px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: white;
     font-size: 1rem;
-    padding: 8px 12px;
     transition: all 0.3s ease-in-out;
+    padding: 8px 12px;
 }
 
 .nav-links a:hover {
@@ -66,79 +68,50 @@ body {
 /* Sidebar */
 .sidebar {
     position: fixed;
-    left: 0;
-    top: 50px;
+    top: 0;
+    right: -250px;
     width: 250px;
-    height: calc(100% - 50px); /* Adjust height to fit below the navbar */
+    height: 100%;
     background: #333;
     color: white;
     padding: 20px;
-    display: block;
-    border-radius: 20px;
-    transition: transform 0.4s ease-in-out;
-    transform: translateX(-100%); /* Initially hidden */
-    z-index: 999; /* Ensure it is above other content */
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+    overflow-y: auto;
 }
 
-.sidebar.show-sidebar {
-    transform: translateX(0); /* Show sidebar */
+.sidebar.show {
+    right: 0;
 }
 
 .sidebar h2 {
     text-align: center;
-    opacity: 1;
-}
-
-.search-box {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-    padding: 8px;
-    background: white;
-    border-radius: 5px;
-    position: relative;
-}
-
-.search-box input {
-    border: none;
-    outline: none;
-    flex: 1;
-    padding: 8px;
-}
-
-.search-icon {
-    position: absolute;
-    right: 10px;
-    cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .sidebar ul {
-    margin-top: 20px;
-    opacity: 1;
+    list-style: none;
+    padding: 0;
 }
 
 .sidebar ul li {
-    list-style: none;
-    padding: 12px;
-    border-radius: 5px;
-    transition: background 0.3s ease, transform 0.2s ease;
+    margin: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
 }
 
-.sidebar ul li a {
+.sidebar a {
     text-decoration: none;
     color: white;
+    transition: all 0.3s ease-in-out;
     display: block;
-    transition: all 0.3s;
+    padding: 10px;
 }
 
-.sidebar ul li:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: scale(1.05);
-}
-
-.close-btn,
-.sidebar-toggle {
-    display: none;
+.sidebar a:hover {
+    background: white;
+    color: #222;
+    border-radius: 5px;
 }
 
 /* Carousel Section */
@@ -150,7 +123,7 @@ body {
     position: relative;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1; /* Ensure carousel is below sidebar */
+    z-index: 1;
 }
 
 .carousel-container {
@@ -159,7 +132,7 @@ body {
 }
 
 .carousel-image {
-    width: 100%;
+    width: 33.33%;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
@@ -172,63 +145,69 @@ body {
     }
 
     .nav-links {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: #222;
-        width: 200px;
         display: none;
-        flex-direction: column;
-        text-align: center;
-        padding: 10px;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .nav-links.active {
-        display: flex;
+    .sidebar {
+        right: -250px;
     }
 
-    .nav-links li {
-        margin: 10px 0;
+    .sidebar.show {
+        right: 0;
     }
 
     .carousel {
         width: 90%;
         height: 180px;
-        margin-top: 20px; /* Add margin for spacing */
+        margin-top: 20px;
     }
 
-    .sidebar {
-        transform: translateX(-100%);
-    }
-
-    .sidebar.show-sidebar {
-        transform: translateX(0);
-    }
-
-    .sidebar-toggle {
-        display: block;
-        position: fixed;
-        top: 60px;
-        left: 10px;
-        background: #222;
-        color: white;
-        padding: 8px;
-        border: none;
-        cursor: pointer;
-        border-radius: 50%;
-    }
-
-    .close-btn {
-        display: block;
+    .nav-links {
+        display: none;
+        /* Hide by default */
+        flex-direction: column;
         position: absolute;
-        top: 10px;
-        right: 15px;
-        background: red;
-        color: white;
-        border: none;
-        padding: 5px;
-        cursor: pointer;
-        border-radius: 50%;
+        top: 60px;
+        right: 0;
+        background: #333;
+        width: 200px;
+        padding: 20px;
+        border-radius: 8px;
+        z-index: 1000;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links.show {
+        display: flex;
+        /* Show only when toggled */
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        padding-bottom: 10px;
+    }
+}
+
+/* Large screen media query (added back) */
+@media (min-width: 1024px) {
+    .navbar {
+        padding: 20px 40px;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+    }
+
+    .carousel {
+        max-width: 1000px;
+    }
+
+    .carousel-image {
+        height: 250px;
     }
 }

@@ -6,19 +6,28 @@ function toggleMenu() {
     menuIcon.innerHTML = navLinks.classList.contains("show") ? "&#10005;" : "&#9776;";
 }
 
-let index = 0;
-
-function moveCarousel() {
-    const carouselContainer = document.querySelector(".carousel-container");
+document.addEventListener("DOMContentLoaded", function () {
     const images = document.querySelectorAll(".carousel-image");
-    index++;
+    let index = 0;
+    let direction = 1; // 1 for forward, -1 for backward
 
-    if (index >= images.length) {
-        index = 0;
+    function showImage() {
+        images.forEach((img, i) => img.classList.remove("active"));
+        images[index].classList.add("active");
+
+        index += direction;
+
+        // Reverse direction at start and end
+        if (index >= images.length) {
+            index = images.length - 2;
+            direction = -1;
+        } else if (index < 0) {
+            index = 1;
+            direction = 1;
+        }
     }
 
-    const offset = -index * 100; // Adjust for one image at a time
-    carouselContainer.style.transform = `translateX(${offset}%)`;
-}
-
-setInterval(moveCarousel, 3000);
+    // Start the cycle
+    showImage();
+    setInterval(showImage, 3000); // Change every 3 seconds
+});

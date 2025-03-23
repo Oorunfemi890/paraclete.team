@@ -128,14 +128,21 @@ body {
 
 .carousel-container {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 400px;
+    position: relative;
 }
 
 .carousel-image {
     width: 100%;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 10px;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-image.active {
+    opacity: 1;
 }
 
 .home-container {
@@ -221,7 +228,6 @@ body {
     }
 }
 
-/* Large screen media query */
 @media (min-width: 1024px) {
     .navbar {
         padding: 20px 40px;
@@ -244,7 +250,6 @@ body {
     }
 }
 
-/* Section Styling */
 .sections {
     display: flex;
     flex-wrap: wrap;
@@ -260,8 +265,12 @@ body {
     width: 30%;
     height: 400px;
     display: flex;
+    flex-direction: column;
+    /* Change to column to stack items vertically */
     justify-content: center;
+    /* Center items vertically */
     align-items: center;
+    /* Center items horizontally */
     transition: all 0.3s ease-in-out;
 }
 
@@ -269,19 +278,18 @@ body {
     transform: scale(1.1);
 }
 
-/* First Section */
-.first-section {
-    background-color: #f4f4f4;
-    width: 35%;
-    height: 300px;
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s ease-in-out;
+/* Circle Image for Sections 2 to 7 */
+.section img {
+    width: 100px;
+    /* Set the size of the circular image */
+    height: 100px;
+    /* Set the size of the circular image */
+    border-radius: 50%;
+    /* Make the image circular */
+    object-fit: cover;
+    /* Ensure the image covers the area */
+    margin-bottom: 10px;
+    /* Space between image and text */
 }
 
 /* Responsive Design for Sections */

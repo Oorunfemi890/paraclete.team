@@ -299,7 +299,7 @@ body {
     /* Make the image circular */
     object-fit: cover;
     /* Ensure the image covers the area */
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     /* Space between image and text */
 }
 
@@ -314,7 +314,7 @@ body {
 
 .section span {
     color: blue;
-    margin-top: 50px;
+    margin-top: 40px;
     font-weight: 600;
 }
 

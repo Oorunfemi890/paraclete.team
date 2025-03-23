@@ -17,7 +17,7 @@ function moveCarousel() {
         index = 0;
     }
 
-    const offset = -index * 100 / images.length; // Adjust for all images
+    const offset = -index * 100; // Adjust for one image at a time
     carouselContainer.style.transform = `translateX(${offset}%)`;
 }
 

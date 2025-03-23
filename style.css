@@ -291,9 +291,9 @@ body {
 
 /* Circle Image for Sections 2 to 7 */
 .section img {
-    width: 120px;
+    width: 100px;
     /* Set the size of the circular image */
-    height: 120px;
+    height: 100px;
     /* Set the size of the circular image */
     border-radius: 50%;
     /* Make the image circular */

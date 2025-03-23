@@ -6,7 +6,6 @@ function toggleMenu() {
     menuIcon.innerHTML = navLinks.classList.contains("show") ? "&#10005;" : "&#9776;";
 }
 
-
 let index = 0;
 
 function moveCarousel() {
@@ -18,7 +17,7 @@ function moveCarousel() {
         index = 0;
     }
 
-    const offset = -index * 100 / 3; // Adjust for 3 images at a time
+    const offset = -index * 100 / images.length; // Adjust for all images
     carouselContainer.style.transform = `translateX(${offset}%)`;
 }
 

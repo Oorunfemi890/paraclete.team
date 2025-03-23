@@ -9,6 +9,7 @@ body {
     background-color: #f4f4f4;
     text-align: center;
     padding-top: 80px;
+    text-transform: capitalize;
 }
 /* Navbar Styling */
 .navbar {
@@ -269,7 +270,7 @@ body {
 .section {
     background-color: white;
     margin: 20px;
-    padding: 20px;
+    padding: 40px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     width: 30%;
@@ -290,17 +291,34 @@ body {
 
 /* Circle Image for Sections 2 to 7 */
 .section img {
-    width: 100px;
+    width: 120px;
     /* Set the size of the circular image */
-    height: 100px;
+    height: 120px;
     /* Set the size of the circular image */
     border-radius: 50%;
     /* Make the image circular */
     object-fit: cover;
     /* Ensure the image covers the area */
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     /* Space between image and text */
 }
+
+.section h2 {
+    margin-bottom: 20px;
+}
+
+.section p {
+    color: rgba(14, 12, 12, 0.727);
+    font-weight: 600;
+}
+
+.section span {
+    color: blue;
+    margin-top: 50px;
+    font-weight: 600;
+}
+
+
 
 /* Responsive Design for Sections */
 @media (max-width: 768px) {
@@ -327,6 +345,7 @@ body {
  .first-section p {
     font-size: 30px;
     font-style: italic;
-    color: #00000067;
+    font-weight: 600;
+    color: #0000008c;
  }
 }

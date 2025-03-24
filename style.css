@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +12,7 @@ body {
     padding-top: 80px;
     text-transform: capitalize;
 }
+
 /* Navbar Styling */
 .navbar {
     display: flex;
@@ -151,9 +153,7 @@ body {
     align-items: center;
     margin-top: 40px;
     gap: 20px;
-    /* Adds space between elements */
     flex-wrap: wrap;
-    /* Ensures responsiveness */
 }
 
 .first-section {
@@ -164,23 +164,41 @@ body {
     border-radius: 10px;
     text-align: center;
 }
+
 .carousel {
     flex: 1;
     max-width: 50%;
     overflow: hidden;
 }
 
-.first-section h2{
+.first-section h2 {
     font-size: 60px;
     font-weight: bold;
     margin-bottom: 20px;
 }
- .first-section p {
+
+.first-section p {
     font-size: 25px;
     font-style: italic;
     color: #00000067;
+}
 
- }
+.start-project {
+    background: linear-gradient(to right, orange, lightorange);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.start-project:hover {
+    background: darkorange;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .menu-icon {
@@ -277,11 +295,8 @@ body {
     height: 400px;
     display: flex;
     flex-direction: column;
-    /* Change to column to stack items vertically */
     justify-content: center;
-    /* Center items vertically */
     align-items: center;
-    /* Center items horizontally */
     transition: all 0.3s ease-in-out;
 }
 
@@ -291,16 +306,11 @@ body {
 
 /* Circle Image for Sections 2 to 7 */
 .section img {
-    width: 100px;
-    /* Set the size of the circular image */
-    height: 100px;
-    /* Set the size of the circular image */
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    /* Make the image circular */
     object-fit: cover;
-    /* Ensure the image covers the area */
-    margin-bottom: 25px;
-    /* Space between image and text */
+    margin-bottom: 30px;
 }
 
 .section h2 {
@@ -314,11 +324,9 @@ body {
 
 .section span {
     color: blue;
-    margin-top: 40px;
+    margin-top: 50px;
     font-weight: 600;
 }
-
-
 
 /* Responsive Design for Sections */
 @media (max-width: 768px) {
@@ -337,15 +345,128 @@ body {
         height: 200px;
         margin: 20px auto;
     }
-    .first-section h2{
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 20px;
+
+    .first-section h2 {
+        font-size: 40px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .first-section p {
+        font-size: 30px;
+        font-style: italic;
+        font-weight: 600;
+        color: #0000008c;
+    }
 }
- .first-section p {
-    font-size: 30px;
-    font-style: italic;
-    font-weight: 600;
-    color: #0000008c;
- }
+
+/* Bottom Bar Styling */
+.bottom-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    color: white;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bottom-bar .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.bottom-bar .item {
+    flex: 1;
+    margin: 10px;
+    text-align: center;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.bottom-bar .item:hover {
+    transform: scale(1.05);
+}
+
+.email-container {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    flex: 1;
+}
+
+.email-input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+    flex: 1;
+}
+
+.email-input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+}
+
+.send-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.send-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .bottom-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px 20px; /* Added padding for smaller screens */
+    }
+
+    .bottom-bar .content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .bottom-bar .item {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .email-container {
+        width: 100%;
+    }
+}
+
+/* Social Media Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+    padding-left: 40px;
+}
+
+.social-icons a:hover {
+    color: #007BFF;
 }

@@ -19,7 +19,7 @@ function showServices() {
     // Reset dropdown & messages
     serviceDropdown.innerHTML = `<option value="">-- Select a Service --</option>`;
     messageDiv.innerHTML = "";
-    
+
     if (techField && services[techField]) {
         services[techField].forEach(service => {
             const option = document.createElement("option");
@@ -81,12 +81,10 @@ document.getElementById("userForm").addEventListener("submit", async function (e
         return;
     }
 
-    // Prepare form data
     const formData = { techField, serviceType, fullName, phone, email };
 
     try {
-        // Send data to backend API
-        const response = await fetch("http://localhost:5000/api/contact", {
+        const response = await fetch("https://paraclete-backend.onrender.com/api/contact", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
@@ -97,7 +95,7 @@ document.getElementById("userForm").addEventListener("submit", async function (e
         if (result.success) {
             messageDiv.innerHTML = `<p class="success">✅ Your request has been submitted successfully. Check your email for confirmation. We will contact you shortly.</p>`;
             document.getElementById("userForm").reset();
-            document.getElementById("contactForm").classList.add("hidden"); // Hide form after submission
+            document.getElementById("contactForm").classList.add("hidden"); 
         } else {
             messageDiv.innerHTML = `<p class="error">❌ Something went wrong. Please try again later.</p>`;
         }

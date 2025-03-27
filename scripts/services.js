@@ -8,7 +8,6 @@ const services = {
     "web-advertisement": ["Google Ads", "Facebook Ads", "Instagram Ads", "YouTube Ads"]
 };
 
-// Function to display services based on selected tech field
 function showServices() {
     const techField = document.getElementById("techField").value;
     const serviceDropdown = document.getElementById("serviceType");

@@ -72,7 +72,7 @@ document.getElementById("userForm").addEventListener("submit", async function (e
     }
 
     if (!/^\d{11}$/.test(phone)) {
-        messageDiv.innerHTML = `<p class="error">⚠️ Enter a valid phone number with at least 10 digits.</p>`;
+        messageDiv.innerHTML = `<p class="error">⚠️ Enter a valid phone number with at least 11 digits.</p>`;
         return;
     }
 

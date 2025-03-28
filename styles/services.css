@@ -31,6 +31,12 @@ button {
     color: white;
     cursor: pointer;
     border: none;
+    transition: opacity 0.3s ease; /* Add transition for fade effect */
+}
+
+button.fade-out {
+    opacity: 0.5; /* Fade out effect */
+    pointer-events: none; /* Prevent clicking */
 }
 
 button:hover {
@@ -39,4 +45,20 @@ button:hover {
 
 .hidden {
     display: none;
+}
+
+#loader {
+    display: none; /* Initially hidden */
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #28a745; /* Green */
+    border-radius: 50%;
+    width: 40px; /* Size of the loader */
+    height: 40px; /* Size of the loader */
+    animation: spin 1s linear infinite; /* Spin animation */
+    margin: 10px auto; /* Center the loader */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

@@ -1,3 +1,5 @@
+const Api_Url = "https://paraclete-backend.onrender.com/api/contact";
+
 const services = {
     "website-development": ["E-commerce", "Portfolio Website", "Business Website", "Blog"],
     "graphic-design": ["Logo Design", "Branding", "UI/UX Design", "Illustration"],

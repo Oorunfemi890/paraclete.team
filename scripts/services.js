@@ -109,7 +109,6 @@ document.getElementById("userForm").addEventListener("submit", async function (e
         console.error("Error submitting form:", error);
         messageDiv.innerHTML = `<p class="error">❌ Unable to send request. Please check your internet connection and try again.</p>`;
     } finally {
-        // Show the submit button again and hide the loader
         submitButton.classList.remove("fade-out");
         loader.style.display = "none";
     }

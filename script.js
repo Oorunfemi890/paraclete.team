@@ -1,5 +1,5 @@
- // Loading Screen
- window.addEventListener('load', function () {
+// Loading Screen
+window.addEventListener('load', function () {
     setTimeout(function () {
         document.getElementById('loadingScreen').style.opacity = '0';
         setTimeout(function () {

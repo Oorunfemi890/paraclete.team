@@ -1,130 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Paraclete Tech Outsourcing</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <link rel="icon" href="/img/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4169E1',
+                        secondary: '#87CEEB'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            line-height: 1.6;
+        .nav-link {
+            position: relative;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #4169E1;
+            transition: width 0.3s;
         }
 
-        h1 {
-            color: #28a745;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-in;
-        }
-
-        h2 {
-            color: #333;
-            margin: 20px 0;
-            animation: fadeIn 1s ease-in;
-        }
-
-        p {
-            color: #555;
-            font-size: 18px;
-            margin: 10px 0;
-            animation: fadeIn 1s ease-in;
-            text-align: justify;
-        }
-
-        .about-section {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin: 20px 0;
+        .nav-link:hover::after {
             width: 100%;
-            max-width: 800px;
-            transition: transform 0.3s;
         }
 
-        .about-section:hover {
-            transform: scale(1.02);
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 24px;
-            }
-
-            p {
-                font-size: 16px;
-            }
+        .mobile-menu.active {
+            transform: translateX(0);
         }
     </style>
 </head>
-<body>
 
-    <div class="container">
-        <h1>About Us</h1>
+<body class="bg-gray-100">
 
-        <div class="about-section">
-            <h2>Our Vision</h2>
-            <p>At Paraclete Tech Outsourcing, we are committed to breaking barriers and redefining outsourcing. Our vision is to establish a formidable global outsourcing powerhouse that empowers businesses to scale efficiently while providing skilled professionals with invaluable opportunities for growth. We deliver impactful, industry-spanning solutions that adapt to the dynamic business landscape. More than just an outsourcing company, we position ourselves as a strategic growth partner for both startups and enterprises, driving success and innovation at every turn.</p>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="Paraclete.html" class="flex items-center">
+                        <img src="/img/favicon.png" alt="Paraclete Logo" class="h-8 w-auto">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/index.html" class="nav-link text-gray-700 hover:text-primary">Home</a>
+                    <a href="Services.html" class="nav-link text-gray-700 hover:text-primary">Services</a>
+                    <a href="Goals.html" class="nav-link text-gray-700 hover:text-primary">Goals</a>
+                    <!-- <a href="src/AboutUs.html" class="nav-link text-gray-700 hover:text-primary">About Us</a> -->
+                    <a href="fields.html" class="nav-link text-gray-700 hover:text-primary">Fields & Stacks</a>
+                    <a href="team.html" class="nav-link text-gray-700 hover:text-primary">Team Profiles</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menuButton" class="text-gray-700 hover:text-primary">
+                        <i class="ri-menu-2-line ri-2x"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="mobile-menu fixed top-16 right-0 bottom-0 w-64 bg-white shadow-lg md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/index.html"
+                    class="block px-3 py-2 text-gray-700 hover:bg-primary hover:text-white rounded-md">Home</a>
+                <a href="/Services.html"
+                    class="block px-3 py-2 text-gray-700 hover:bg-primary hover:text-white rounded-md">Services</a>
+                <a href="Goals.html"
+                    class="block px-3 py-2 text-gray-700 hover:bg-primary hover:text-white rounded-md">Goals</a>
+                <!-- <a href="src/AboutUs.html" class="block px-3 py-2 text-gray-700 hover:bg-primary hover:text-white rounded-md">About Us</a> -->
+                <a href="fields.html"
+                    class="block px-3 py-2 text-gray-700 hover:bg-primary hover:text-white rounded-md">Fields &
+                    Stacks</a>
+                <a href="team.html"
+                    class="block px-3 py-2 text-gray-700 hover:bg-primary hover:text-white rounded-md">Team Profiles</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto p-6">
+        <h1 class="text-4xl text-green-600 mb-6">About Us</h1>
+
+        <div class="about-section bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl text-gray-800 mb-4">Our Vision</h2>
+            <p class="text-gray-700 text-lg mb-4">At Paraclete Tech Outsourcing, we are committed to breaking barriers
+                and redefining outsourcing. Our vision is to establish a formidable global outsourcing powerhouse that
+                empowers businesses to scale efficiently while providing skilled professionals with invaluable
+                opportunities for growth. We deliver impactful, industry-spanning solutions that adapt to the dynamic
+                business landscape. More than just an outsourcing company, we position ourselves as a strategic growth
+                partner for both startups and enterprises, driving success and innovation at every turn.</p>
         </div>
 
-        <div class="about-section">
-            <h2>Our Story</h2>
-            <p>Founded in 2020, Paraclete Tech Outsourcing was born out of a simple yet powerful idea: to create a platform where skilled individuals, especially those just starting in their careers, could find opportunities to work, grow, and contribute meaningfully to businesses worldwide. We recognized a common challenge—many talented individuals struggle to secure jobs due to a lack of experience, while businesses, especially startups and small enterprises, struggle to access quality tech and business solutions without the high cost of hiring full-time professionals.</p>
-            <p>Paraclete Tech Outsourcing was established to bridge this gap. We provide businesses with high-quality, cost-effective tech and business solutions while offering skilled professionals an opportunity to gain real-world experience, earn, and grow in their careers.</p>
+        <div class="about-section bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl text-gray-800 mb-4">Our Story</h2>
+            <p class="text-gray-700 text-lg mb-4">Founded in 2020, Paraclete Tech Outsourcing was born out of a simple
+                yet powerful idea: to create a platform where skilled individuals, especially those just starting in
+                their careers, could find opportunities to work, grow, and contribute meaningfully to businesses
+                worldwide. We recognized a common challenge—many talented individuals struggle to secure jobs due to a
+                lack of experience, while businesses, especially startups and small enterprises, struggle to access
+                quality tech and business solutions without the high cost of hiring full-time professionals.</p>
+            <p class="text-gray-700 text-lg mb-4">Paraclete Tech Outsourcing was established to bridge this gap. We
+                provide businesses with high-quality, cost-effective tech and business solutions while offering skilled
+                professionals an opportunity to gain real-world experience, earn, and grow in their careers.</p>
         </div>
 
-        <div class="about-section">
-            <h2>What We Do</h2>
-            <p>At Paraclete, we specialize in outsourcing key business functions to help companies operate efficiently and scale seamlessly. Our services span across various fields, including:</p>
-            <ul>
-                <li>Web Development & Design – Creating stunning, responsive, and functional websites tailored to business needs.</li>
-                <li>Graphics Design & Branding – Enhancing brand identity with creative designs that make a lasting impact.</li>
-                <li>Data Analytics & Business Intelligence – Turning raw data into valuable insights to drive business growth.</li>
-                <li>Social Media Management & Marketing – Helping brands build a strong online presence and reach the right audience.</li>
-                <li>IT Support & Digital Solutions – Providing tech-driven solutions to streamline business operations.</li>
+        <div class="about-section bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl text-gray-800 mb-4">What We Do</h2>
+            <p class="text-gray-700 text-lg mb-4">At Paraclete, we specialize in outsourcing key business functions to
+                help companies operate efficiently and scale seamlessly. Our services span across various fields,
+                including:</p>
+            <ul class="list-disc list-inside text-gray-700 text-lg mb-4">
+                <li>Web Development & Design – Creating stunning, responsive, and functional websites tailored to
+                    business needs.</li>
+                <li>Graphics Design & Branding – Enhancing brand identity with creative designs that make a lasting
+                    impact.</li>
+                <li>Data Analytics & Business Intelligence – Turning raw data into valuable insights to drive business
+                    growth.</li>
+                <li>Social Media Management & Marketing – Helping brands build a strong online presence and reach the
+                    right audience.</li>
+                <li>IT Support & Digital Solutions – Providing tech-driven solutions to streamline business operations.
+                </li>
                 <li>Content Creation & Copywriting – Crafting compelling content that resonates with audiences.</li>
             </ul>
-            <p>We believe that outsourcing is more than just a service—it’s a strategic partnership that enables businesses to focus on their core operations while experts handle the rest.</p>
+            <p class="text-gray-700 text-lg mb-4">We believe that outsourcing is more than just a service—it’s a
+                strategic partnership that enables businesses to focus on their core operations while experts handle the
+                rest.</p>
         </div>
 
-        <div class="about-section">
-            <h2>Our Mission</h2>
-            <p>Our mission is to redefine the future of work by creating a thriving outsourcing ecosystem that benefits both businesses and professionals. We aim to:</p>
-            <ul>
-                <li>Empower Skilled Individuals – Provide opportunities for skilled but inexperienced professionals to gain real-world experience.</li>
+        <div class="about-section bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl text-gray-800 mb-4">Our Mission</h2>
+            <p class="text-gray-700 text-lg mb-4">Our mission is to redefine the future of work by creating a thriving
+                outsourcing ecosystem that benefits both businesses and professionals. We aim to:</p>
+            <ul class="list-disc list-inside text-gray-700 text-lg mb-4">
+                <li>Empower Skilled Individuals – Provide opportunities for skilled but inexperienced professionals to
+                    gain real-world experience.</li>
                 <li>Support Business Growth – Help startups and SMEs access affordable, high-quality services.</li>
                 <li>Enhance Work Efficiency – Take the workload off business owners so they can focus on scaling.</li>
-                <li>Foster a Community of Excellence – Build a network of dedicated professionals passionate about innovation and impact.</li>
+                <li>Foster a Community of Excellence – Build a network of dedicated professionals passionate about
+                    innovation and impact.</li>
             </ul>
         </div>
 
-        <div class="about-section">
-            <h2>Our Future Vision</h2>
-            <p>As we grow, we plan to expand our service offerings, integrate more advanced technology solutions, and create an even larger network of skilled professionals ready to support businesses globally. Our long-term vision is to establish a full-scale outsourcing hub that connects businesses with top-tier talent while fostering job creation and career development.</p>
-            <p>At Paraclete Tech Outsourcing, we are building a future where businesses thrive, professionals grow, and opportunities are limitless. 🚀 Join us as we revolutionize the outsourcing space—one project at a time.</p>
+        <div class="about-section bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-2xl text-gray-800 mb-4">Our Future Vision</h2>
+            <p class="text-gray-700 text-lg mb-4">As we grow, we plan to expand our service offerings, integrate more
+                advanced technology solutions, and create an even larger network of skilled professionals ready to
+                support businesses globally. Our long-term vision is to establish a full-scale outsourcing hub that
+                connects businesses with top-tier talent while fostering job creation and career development.</p>
+            <p class="text-gray-700 text-lg mb-4">At Paraclete Tech Outsourcing, we are building a future where
+                businesses thrive, professionals grow, and opportunities are limitless. 🚀 Join us as we revolutionize
+                the outsourcing space—one project at a time.</p>
         </div>
     </div>
 
+    <!-- Last Section -->
+    <section class="py-20 bg-primary text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h2 class="text-4xl font-bold mb-8">Ready to Get Started?</h2>
+                <p class="text-white/80 max-w-2xl mx-auto mb-12">
+                    Let's work together to bring your vision to life. Contact us today for a free consultation.
+                </p>
+                <button class="bg-white text-primary px-8 py-3 !rounded-button hover:bg-white/90 transition-colors"><a
+                        href="Services.html">
+                        Contact Us Now</a>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="/img/favicon.png" alt="Paraclete Logo" class="h-8 w-auto">
+                    </div>
+                    <p class="text-gray-400">Empowering businesses through digital excellence</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="Services.html" class="text-gray-400 hover:text-white">Web Development</a></li>
+                        <li><a href="Services.html" class="text-gray-400 hover:text-white">Graphics & Branding</a></li>
+                        <li><a href="Services.html" class="text-gray-400 hover:text-white">Data Analytics</a></li>
+                        <li><a href="Services.html" class="text-gray-400 hover:text-white">Business Consulting</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <!-- <li><a href="src/AboutUs.html" class="text-gray-400 hover:text-white">About Us</a></li> -->
+                        <li><a href="team.html" class="text-gray-400 hover:text-white">Team</a></li>
+                        <li><a href="Services.html" class="text-gray-400 hover:text-white">Get Started</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/paraclete-tech-outsourcing?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            class="text-gray-400 hover:text-white">
+                            <i class="ri-linkedin-fill ri-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="ri-twitter-fill ri-lg"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="ri-facebook-fill ri-lg"></i>
+                        </a>
+                        <a href="https://www.instagram.com/paraclete_outsourcing?igsh=MTFtaGV1dGlmN284bw=="
+                            class="text-gray-400 hover:text-white">
+                            <i class="ri-instagram-fill ri-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Paraclete Tech Outsourcing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 </body>
+
+<script>
+    document.getElementById('menuButton').addEventListener('click', function () {
+        document.getElementById('mobileMenu').classList.toggle('active');
+    });
+</script>
+
 </html>

@@ -9,6 +9,10 @@ const services = {
     "web-advertisement": ["Google Ads", "Facebook Ads", "Instagram Ads", "YouTube Ads"]
 };
 
+document.getElementById('menuButton').addEventListener('click', function () {
+    document.getElementById('mobileMenu').classList.toggle('active');
+});
+
 function showServices() {
     const techField = document.getElementById("techField").value;
     const serviceDropdown = document.getElementById("serviceType");

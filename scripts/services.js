@@ -86,6 +86,7 @@ document.getElementById("userForm").addEventListener("submit", async function (e
 
     const formData = { techField, serviceType, fullName, phone, email };
 
+
     // Fade out the submit button and show the loader
     submitButton.classList.add("fade-out");
     loader.style.display = "block";

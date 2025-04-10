@@ -5,9 +5,8 @@ const services = {
     "graphic-design": ["Logo Design", "Branding", "UI/UX Design", "Illustration"],
     "data-analysis": ["Data Visualization", "Business Intelligence", "Machine Learning", "Big Data"],
     "marketing": ["SEO", "Social Media Marketing", "Email Marketing", "Affiliate Marketing"],
-    "product-management": ["Roadmap Planning", "User  Research", "Wireframing", "Prototyping"],
+    "product-management": ["Roadmap Planning", "User  Research", "Wireframing", "Prototyping"],  
     "web-advertisement": ["Google Ads", "Facebook Ads", "Instagram Ads", "YouTube Ads"]
-    "others": ["others"]
 };
 
 

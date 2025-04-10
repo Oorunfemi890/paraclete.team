@@ -7,6 +7,7 @@ const services = {
     "marketing": ["SEO", "Social Media Marketing", "Email Marketing", "Affiliate Marketing"],
     "product-management": ["Roadmap Planning", "User  Research", "Wireframing", "Prototyping"],
     "web-advertisement": ["Google Ads", "Facebook Ads", "Instagram Ads", "YouTube Ads"]
+    "others": ["others"]
 };
 
 
